@@ -38,7 +38,7 @@ public class TaskOneScript : MonoBehaviour
         InevitabilityBar.current.ChangeInevitability(decayMultiplier*Time.deltaTime);
     }
 
-    private void OnTriggerEnter(Collider other)
+    public void TaskCleared()
     {
         //task complete
         InevitabilityBar.current.ChangeInevitability(completionReward);
