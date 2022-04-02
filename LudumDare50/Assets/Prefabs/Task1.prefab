@@ -126,6 +126,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5dcf7b7a72499a49b7620aa8264352d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  positions:
+  - {x: 2, y: 0, z: 2}
+  - {x: 0, y: 0, z: 2}
+  - {x: -2, y: 0, z: 2}
+  expirationThreshold: 5
+  expirationPenalty: -20
+  completionReward: 15
+  decayMultiplier: -1
 --- !u!136 &9133682422364917080
 CapsuleCollider:
   m_ObjectHideFlags: 0
