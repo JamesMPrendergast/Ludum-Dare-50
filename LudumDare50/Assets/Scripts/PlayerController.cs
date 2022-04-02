@@ -17,8 +17,8 @@ public class PlayerController : MonoBehaviour
     public LayerMask groundMask;
 
     Vector2 movement;
-    public bool isGrounded;
-    public Vector3 velocity;
+    bool isGrounded;
+    Vector3 velocity;
 
     void Start()
     {
