@@ -11,6 +11,7 @@ public class CameraController : MonoBehaviour
     public float sensitivity = 45;
 
     Vector2 mouseMovement;
+    float xRotation;
 
     void Start()
     {
@@ -19,11 +20,15 @@ public class CameraController : MonoBehaviour
 
     void Update()
     {
-        transform.Rotate(Vector3.up * mouseMovement.x * sensitivity * Time.deltaTime, Space.Self); //rotates player
-        float realX = (camera.transform.eulerAngles.x + 180) % 360 - 180;
-        if ((realX < -33.75f && mouseMovement.x > 0) || (realX > 33.75f && mouseMovement.x < 0) || (realX > -33.75f && realX < 33.75f)) {
-            camera.transform.Rotate(Vector3.right * -mouseMovement.y * sensitivity * Time.deltaTime, Space.Self); //turns head w/ clamps
-        }
+        CameraControls();
+    }
+
+    void CameraControls()
+    {
+        transform.Rotate(Vector3.up * mouseMovement.x);
+        xRotation -= mouseMovement.y;
+        xRotation = Mathf.Clamp(xRotation, -90f, 90f);
+        camera.transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
     }
 
     public void OnMouseMove(InputValue input)
