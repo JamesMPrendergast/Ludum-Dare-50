@@ -19,11 +19,11 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        transform.Translate(new Vector3(movement.x, 0, movement.y), Space.Self);
+        transform.Translate(new Vector3(movement.x, 0, movement.y) * speed * Time.deltaTime, Space.Self); //moves player
     }
 
     public void OnWalk(InputValue input)
     {
-        movement = input.Get<Vector2>();
+        movement = input.Get<Vector2>(); //gets input information
     }
 }
