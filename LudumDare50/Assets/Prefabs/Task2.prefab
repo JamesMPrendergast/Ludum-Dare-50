@@ -11,8 +11,6 @@ GameObject:
   - component: {fileID: 5196997267320177340}
   - component: {fileID: 338640359164002913}
   - component: {fileID: 8769615583720299776}
-  - component: {fileID: 7562454062677392210}
-  - component: {fileID: 5974529626965154983}
   m_Layer: 0
   m_Name: Cylinder
   m_TagString: Untagged
@@ -83,32 +81,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!136 &7562454062677392210
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1367118101716108375}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.5000001
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
---- !u!114 &5974529626965154983
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1367118101716108375}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 29f35e3bed8481547977e903bb0c31f0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &3246866406958330194
 GameObject:
   m_ObjectHideFlags: 0
@@ -118,7 +90,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5470012842554175893}
-  - component: {fileID: 1993813873794535181}
+  - component: {fileID: 7501916547642636097}
+  - component: {fileID: 518515561577446088}
   m_Layer: 0
   m_Name: Task2
   m_TagString: Untagged
@@ -141,7 +114,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1993813873794535181
+--- !u!136 &7501916547642636097
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3246866406958330194}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 0.95014817
+  m_Height: 2.5321817
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.99000955, z: 0.03868586}
+--- !u!114 &518515561577446088
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -153,3 +140,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5dcf7b7a72499a49b7620aa8264352d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  positions:
+  - {x: 2, y: 0, z: 1}
+  - {x: -2, y: 0, z: 1}
+  expirationThreshold: 10
