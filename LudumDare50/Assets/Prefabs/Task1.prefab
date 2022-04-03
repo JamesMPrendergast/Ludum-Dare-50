@@ -127,8 +127,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   positionList:
-  - {x: 3, y: 0, z: 1}
-  - {x: 0, y: 0, z: 9.75}
+  - {x: 3, y: 0, z: 1.5}
+  - {x: -0.5, y: 0, z: 10}
   - {x: -9.5, y: 0, z: 4.25}
   - {x: -17.5, y: 0, z: 2}
   - {x: -13, y: 0, z: 15.25}

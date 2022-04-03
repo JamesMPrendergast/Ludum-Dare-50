@@ -8,7 +8,7 @@ public class TaskOneScript : MonoBehaviour
 {
     public Vector3[] positionList = {
         new Vector3(3, 0, 1),
-        new Vector3(0, 0, 9.75f),
+        new Vector3(-0.5f, 0, 10f),
         new Vector3(-9.5f, 0, 4.25f),
         new Vector3(-17.5f, 0, 2),
         new Vector3(-13f, 0, 15.25f),

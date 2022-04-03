@@ -13,6 +13,7 @@ public class CameraController : MonoBehaviour
     public Transform radial; //dependencies
     public float sensitivity = 45;
     public float lookRange = 6.25f;
+    public float FOVTransitionTime = 0.1f;
 
     Vector2 mouseMovement;
     float xRotation;
@@ -23,10 +24,17 @@ public class CameraController : MonoBehaviour
     float timeForTask = 1;
     float timeSoFar = 0;
     public Transform taskBeingSolved;
+    bool changingFOV;
+    float FOVTimer;
+    float setFOV = 60;
+    float startingFOV;
+    float FOVTarget;
 
     void Start()
     {
         current = this;
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
     }
 
     void Update()
@@ -70,6 +78,25 @@ public class CameraController : MonoBehaviour
         radial.GetComponent<Image>().fillAmount = lerpedValue;
 
         CameraControls(); //see below
+
+        //FOV speed boost indicator
+        if (!changingFOV) {
+            FOVTarget = 60 + PlayerController.current.totalBoost * 4;
+            if (camera.fieldOfView != FOVTarget) {
+                changingFOV = true;
+                FOVTimer = 0;
+                startingFOV = camera.fieldOfView;
+            }
+        } else {
+            if (FOVTimer >= FOVTransitionTime) {
+                setFOV = FOVTarget;
+                changingFOV = false;
+            } else {
+                setFOV = Mathf.Lerp(startingFOV, FOVTarget, FOVTimer / FOVTransitionTime);
+                FOVTimer += Time.deltaTime;
+            }
+        }
+        camera.fieldOfView = setFOV;
     }
 
     void CameraControls()
