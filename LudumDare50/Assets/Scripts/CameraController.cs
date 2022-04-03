@@ -22,6 +22,7 @@ public class CameraController : MonoBehaviour
     RaycastHit hit;
     float timeForTask = 1;
     float timeSoFar = 0;
+    Transform taskBeingSolved;
 
     void Start()
     {
@@ -30,11 +31,29 @@ public class CameraController : MonoBehaviour
 
     void Update()
     {
+        //checks if we're looking at a task -----------------------------------------------------------------
+        Debug.DrawRay(camera.transform.position, camera.transform.forward.normalized * lookRange, Color.yellow);
+        if (Physics.Raycast(camera.transform.position, camera.transform.forward, out hit, lookRange)) {
+            //Debug.Log(hit.transform.gameObject.layer + " vs " + "8");
+            if (hit.transform.gameObject.layer == 8) {
+                indicator.GetComponent<Image>().enabled = true; //squeeb
+                radial.GetComponent<Image>().enabled = true;
+                lookingAtTask = true;
+            } else { lookingAtTask = false; }
+        } else {
+            if (timeSoFar <= 0) {
+                indicator.GetComponent<Image>().enabled = false;
+                radial.GetComponent<Image>().enabled = false;
+            } lookingAtTask = false;
+        }
+
         //resolving and solving of tasks
         if (lookingAtTask && interactPressed) {
+            //if (hit.transform != taskBeingSolved) { newTaskSettedUp = false; timeSoFar = 0; }
             if (!newTaskSettedUp) {
                 timeForTask = 2f;
-                newTaskSettedUp = true; Debug.Log("ayo?");
+                taskBeingSolved = hit.transform;
+                newTaskSettedUp = true;
             }
             timeSoFar += Time.deltaTime;
             if (timeSoFar >= timeForTask) {
@@ -50,21 +69,6 @@ public class CameraController : MonoBehaviour
         radial.GetComponent<Image>().fillAmount = lerpedValue;
 
         CameraControls(); //see below
-
-        //cheks if we're looking at a task
-        Debug.DrawRay(camera.transform.position, camera.transform.forward.normalized * lookRange, Color.yellow);
-        if (Physics.Raycast(camera.transform.position, camera.transform.forward, out hit, lookRange, LayerMask.GetMask("task"))) {
-            indicator.GetComponent<Image>().enabled = true; //squeeb
-            radial.GetComponent<Image>().enabled = true;
-            lookingAtTask = true;
-        } else {
-            if (timeSoFar <= 0) {
-                indicator.GetComponent<Image>().enabled = false;
-                radial.GetComponent<Image>().enabled = false;
-            } lookingAtTask = false;
-        }
-
-        Debug.Log(lookingAtTask);
     }
 
     void CameraControls()
