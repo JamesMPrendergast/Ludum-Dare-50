@@ -23,12 +23,17 @@ public class TaskOneScript : MonoBehaviour
     public float completionReward;
     public float decayMultiplier;
 
+    public GameObject ps; //confetti
+    private GameObject InstantiatedPS; 
+
     // Start is called before the first frame update
     void Start()
     {
         //assign random position from list of possible ones
         transform.position = positionList[Random.Range(0, positionList.Length)];
         timer = 0.0f;
+
+        print(ps);
     }
 
     // Update is called once per frame
@@ -50,6 +55,9 @@ public class TaskOneScript : MonoBehaviour
     {
         //task complete
         InevitabilityBar.current.ChangeInevitability(completionReward);
+        //confetti!
+        InstantiatedPS = Instantiate(ps, new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity);
+        InstantiatedPS.transform.Rotate(new Vector3(270, 0, 0));
         Destroy(gameObject);
     }
 }
