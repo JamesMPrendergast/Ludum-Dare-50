@@ -16,7 +16,7 @@ public class CameraController : MonoBehaviour
 
     Vector2 mouseMovement;
     float xRotation;
-    bool interactPressed;
+    public bool interactPressed;
     bool lookingAtTask;
     bool newTaskSettedUp;
     RaycastHit hit;

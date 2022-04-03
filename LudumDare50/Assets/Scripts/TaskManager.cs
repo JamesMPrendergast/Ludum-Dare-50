@@ -14,8 +14,8 @@ public class TaskManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        TimeUntilT1 = Random.Range(20.0f, 30.0f);
-        TimeUntilT2 = Random.Range(35.0f, 45.0f);
+        TimeUntilT1 = Random.Range(5.0f, 15.0f);
+        TimeUntilT2 = Random.Range(20.0f, 30.0f);
     }
 
     // Update is called once per frame

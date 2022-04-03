@@ -11,14 +11,17 @@ public class PlayerController : MonoBehaviour
     public Transform groundCheck;
 
     //Setting variables (things we can tweak)
-    public float speed = 5f;
+    public float baseSpeed = 5f;
     public float groundDistance = .25f;
     public float gravity = -9.81f;
     public LayerMask groundMask;
 
     Vector2 movement;
+    float speed;
     bool isGrounded;
     Vector3 velocity;
+    public float totalBoost;
+    float boostTimer;
 
     void Start()
     {
@@ -29,6 +32,10 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
+        //boost make-shift coroutine
+        if (boostTimer > 0) { if (CameraController.current.taskBeingSolved == null) { boostTimer -= Time.deltaTime; } }
+        else { totalBoost = 0; }
+
         Move();
 
         isGrounded = Physics.CheckSphere(groundCheck.transform.position, groundDistance, groundMask); //checks if on ground
@@ -40,6 +47,9 @@ public class PlayerController : MonoBehaviour
 
     private void Move() //moves the player according to local space & inputs
     {
+        if (CameraController.current.interactPressed) { speed = baseSpeed / 2; } //incentive so that the player doesn't hold down 'E'
+        else { speed = baseSpeed + totalBoost; }
+
         Vector3 moveDir = transform.right * movement.x + transform.forward * movement.y;
         cc.Move(moveDir * speed * Time.deltaTime);
     }
@@ -47,5 +57,11 @@ public class PlayerController : MonoBehaviour
     public void OnWalk(InputValue input)
     {
         movement = input.Get<Vector2>(); //gets input information
+    }
+
+    public void tempBoost(float boost, float duration)
+    {
+        totalBoost += boost;
+        if (boostTimer < duration) { boostTimer = duration; }
     }
 }

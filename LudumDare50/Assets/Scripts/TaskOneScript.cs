@@ -38,7 +38,7 @@ public class TaskOneScript : MonoBehaviour
 
         renderer = transform.GetChild(0).GetComponent<Renderer>();
 
-        print(ps);
+        //print(ps);
     }
 
     // Update is called once per frame
@@ -57,7 +57,7 @@ public class TaskOneScript : MonoBehaviour
 
         //display how long a task was present
         float alpha = Mathf.Lerp(100.0f, 1.0f, timer / expirationThreshold);
-        Debug.Log(alpha + " vs " + alpha / 100);
+        //Debug.Log(alpha + " vs " + alpha / 100);
         renderer.material.color = new Color(renderer.material.color.r, renderer.material.color.g, renderer.material.color.b, alpha / 100);
     }
 
@@ -65,6 +65,10 @@ public class TaskOneScript : MonoBehaviour
     {
         //task complete
         InevitabilityBar.current.ChangeInevitability(completionReward);
+
+        //boost
+        PlayerController.current.tempBoost(2.5f, 2.5f);
+
         //confetti!
         InstantiatedPS = Instantiate(ps, new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity);
         InstantiatedPS.transform.Rotate(new Vector3(270, 0, 0));
