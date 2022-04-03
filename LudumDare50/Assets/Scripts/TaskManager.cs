@@ -28,14 +28,14 @@ public class TaskManager : MonoBehaviour
         {
             Instantiate(t1);
             //this is where we would actually spawn task 1
-            TimeUntilT1 = Random.Range(20.0f, 30.0f);
+            TimeUntilT1 = Random.Range(10.0f, 20.0f);
         }
 
         if (TimeUntilT2 <= 0)
         {
             Instantiate(t2);
             //this is where we would actually spawn task 2
-            TimeUntilT2 = Random.Range(35.0f, 45.0f);
+            TimeUntilT2 = Random.Range(30.0f, 40.0f);
         }
     }
 }

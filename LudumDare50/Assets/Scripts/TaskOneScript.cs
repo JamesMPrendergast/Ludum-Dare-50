@@ -20,11 +20,14 @@ public class TaskOneScript : MonoBehaviour
     public float expirationThreshold = 5.0f;
 
     public float expirationPenalty;
+    public float completionTime;
     public float completionReward;
     public float decayMultiplier;
 
     public GameObject ps; //confetti
-    private GameObject InstantiatedPS; 
+    private GameObject InstantiatedPS;
+
+    Renderer renderer;
 
     // Start is called before the first frame update
     void Start()
@@ -33,13 +36,15 @@ public class TaskOneScript : MonoBehaviour
         transform.position = positionList[Random.Range(0, positionList.Length)];
         timer = 0.0f;
 
+        renderer = transform.GetChild(0).GetComponent<Renderer>();
+
         print(ps);
     }
 
     // Update is called once per frame
     void Update()
     {
-        timer += Time.deltaTime;
+        if (CameraController.current.taskBeingSolved != transform) { timer += Time.deltaTime; }
         if (timer >= expirationThreshold)
         {
             //task expires
@@ -48,7 +53,12 @@ public class TaskOneScript : MonoBehaviour
         }
 
         //natural inevitability decay:
-        InevitabilityBar.current.ChangeInevitability(decayMultiplier*Time.deltaTime);
+        if (CameraController.current.taskBeingSolved != transform) { InevitabilityBar.current.ChangeInevitability(decayMultiplier * Time.deltaTime); }
+
+        //display how long a task was present
+        float alpha = Mathf.Lerp(100.0f, 1.0f, timer / expirationThreshold);
+        Debug.Log(alpha + " vs " + alpha / 100);
+        renderer.material.color = new Color(renderer.material.color.r, renderer.material.color.g, renderer.material.color.b, alpha / 100);
     }
 
     public void TaskCleared()

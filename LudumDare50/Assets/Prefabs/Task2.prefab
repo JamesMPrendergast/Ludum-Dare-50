@@ -147,8 +147,9 @@ MonoBehaviour:
   - {x: -17.5, y: 0, z: 2}
   - {x: -13, y: 0, z: 15.25}
   - {x: 4.5, y: 0, z: 12.5}
-  expirationThreshold: 10
+  expirationThreshold: 15
   expirationPenalty: -30
+  completionTime: 2.5
   completionReward: 20
   decayMultiplier: -2
   ps: {fileID: 6468166979022464182, guid: 75b52e0d4cf3fef4cb4f13f18e7d77a3, type: 3}

@@ -22,7 +22,7 @@ public class CameraController : MonoBehaviour
     RaycastHit hit;
     float timeForTask = 1;
     float timeSoFar = 0;
-    Transform taskBeingSolved;
+    public Transform taskBeingSolved;
 
     void Start()
     {
@@ -51,7 +51,7 @@ public class CameraController : MonoBehaviour
         if (lookingAtTask && interactPressed) {
             //if (hit.transform != taskBeingSolved) { newTaskSettedUp = false; timeSoFar = 0; }
             if (!newTaskSettedUp) {
-                timeForTask = 2f;
+                timeForTask = hit.transform.GetComponent<TaskOneScript>().completionTime;
                 taskBeingSolved = hit.transform;
                 newTaskSettedUp = true;
             }
@@ -61,6 +61,7 @@ public class CameraController : MonoBehaviour
                 timeSoFar = 0;
             }
         } else {
+            taskBeingSolved = null;
             if (timeSoFar > 0) {
                 timeSoFar -= Time.deltaTime;
             } else { newTaskSettedUp = false; }
