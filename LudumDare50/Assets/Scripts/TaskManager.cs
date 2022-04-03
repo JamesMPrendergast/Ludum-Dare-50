@@ -9,6 +9,8 @@ public class TaskManager : MonoBehaviour
     public GameObject t1; //Task 1 to spawn
     public GameObject t2; //Task 2 to spawn
 
+    public List<GameObject> tasks = new List<GameObject>();
+
     // Start is called before the first frame update
     void Start()
     {
