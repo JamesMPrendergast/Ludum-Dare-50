@@ -39,7 +39,7 @@ public class CameraController : MonoBehaviour
                 indicator.GetComponent<Image>().enabled = true; //squeeb
                 radial.GetComponent<Image>().enabled = true;
                 lookingAtTask = true;
-            } else { lookingAtTask = false; }
+            } else { lookingAtTask = false; taskBeingSolved = null; indicator.GetComponent<Image>().enabled = false; }
         } else {
             if (timeSoFar <= 0) {
                 indicator.GetComponent<Image>().enabled = false;
