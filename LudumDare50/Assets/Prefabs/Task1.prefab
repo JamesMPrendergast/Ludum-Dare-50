@@ -126,14 +126,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5dcf7b7a72499a49b7620aa8264352d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  positions:
+  positionList:
   - {x: 3, y: 0, z: 1}
-  - {x: 0, y: 0, z: 2}
-  - {x: -2, y: 0, z: 2}
+  - {x: 0, y: 0, z: 9.75}
+  - {x: -9.5, y: 0, z: 4.25}
+  - {x: -17.5, y: 0, z: 2}
+  - {x: -13, y: 0, z: 15.25}
+  - {x: 4.5, y: 0, z: 12.5}
   expirationThreshold: 5
   expirationPenalty: -20
   completionReward: 15
   decayMultiplier: -1
+  ps: {fileID: 6468166979022464182, guid: 75b52e0d4cf3fef4cb4f13f18e7d77a3, type: 3}
 --- !u!136 &9133682422364917080
 CapsuleCollider:
   m_ObjectHideFlags: 0
