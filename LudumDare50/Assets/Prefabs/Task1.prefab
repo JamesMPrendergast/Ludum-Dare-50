@@ -141,6 +141,7 @@ MonoBehaviour:
   decayMultiplier: -1
   ps: {fileID: 6468166979022464182, guid: 75b52e0d4cf3fef4cb4f13f18e7d77a3, type: 3}
   clip: {fileID: 8300000, guid: 622cb9459189a284a89bb120eef82c1a, type: 3}
+  errorClip: {fileID: 8300000, guid: 88aeee898866442b0954f9b4a939d257, type: 3}
   issueClips:
   - {fileID: 8300000, guid: 7c6c2606233f9499bb15aa0797e9ec4a, type: 3}
   - {fileID: 8300000, guid: f718226c894f94676a1e88d9a34266d9, type: 3}

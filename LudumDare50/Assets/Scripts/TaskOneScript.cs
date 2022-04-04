@@ -29,6 +29,7 @@ public class TaskOneScript : MonoBehaviour
 
     Renderer renderer;
     public AudioClip clip;
+    public AudioClip errorClip;
     public List<AudioClip> issueClips = new List<AudioClip>();
     AudioSource audioSource;
 
@@ -56,6 +57,7 @@ public class TaskOneScript : MonoBehaviour
         {
             //task expires
             InevitabilityBar.current.ChangeInevitability(expirationPenalty);
+            AudioSource.PlayClipAtPoint(errorClip, transform.position, 1f); //error sound effect
             Destroy(gameObject);
         }
 
