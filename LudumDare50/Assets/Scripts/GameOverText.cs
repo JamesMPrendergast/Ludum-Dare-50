@@ -40,9 +40,8 @@ public class GameOverText : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
-    void Update()
+    string properFormatSeconds(int numberSec)
     {
-        
+
     }
 }

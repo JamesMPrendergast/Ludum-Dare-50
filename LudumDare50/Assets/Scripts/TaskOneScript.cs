@@ -30,6 +30,7 @@ public class TaskOneScript : MonoBehaviour
     Renderer renderer;
     public AudioClip clip;
     public List<AudioClip> issueClips = new List<AudioClip>();
+    AudioSource audioSource;
 
     // Start is called before the first frame update
     void Start()
@@ -41,6 +42,10 @@ public class TaskOneScript : MonoBehaviour
         renderer = transform.GetChild(0).GetComponent<Renderer>();
 
         //print(ps);
+
+        //Issue audio plays
+        audioSource = GetComponent<AudioSource>();
+        playIssue(); Debug.Log("playedIssue");
     }
 
     // Update is called once per frame
@@ -79,5 +84,14 @@ public class TaskOneScript : MonoBehaviour
         AudioSource.PlayClipAtPoint(clip, transform.position, .25f);
 
         Destroy(gameObject);
+    }
+
+    void playIssue()
+    {
+        int selected = Random.Range(0, issueClips.Count);
+        if (selected == 0) { audioSource.volume = .025f; }
+        else if (selected == 1) { audioSource.volume = .1875f; }
+        audioSource.clip = issueClips[selected];
+        audioSource.Play();
     }
 }
