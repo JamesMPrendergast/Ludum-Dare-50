@@ -45,7 +45,7 @@ public class TaskOneScript : MonoBehaviour
 
         //Issue audio plays
         audioSource = GetComponent<AudioSource>();
-        playIssue(); Debug.Log("playedIssue");
+        playIssue(); //Debug.Log("playedIssue");
     }
 
     // Update is called once per frame
