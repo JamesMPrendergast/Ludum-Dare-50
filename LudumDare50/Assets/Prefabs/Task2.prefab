@@ -153,3 +153,4 @@ MonoBehaviour:
   completionReward: 20
   decayMultiplier: -2
   ps: {fileID: 6468166979022464182, guid: 75b52e0d4cf3fef4cb4f13f18e7d77a3, type: 3}
+  clip: {fileID: 8300000, guid: 622cb9459189a284a89bb120eef82c1a, type: 3}

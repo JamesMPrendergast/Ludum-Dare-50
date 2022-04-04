@@ -28,6 +28,7 @@ public class TaskOneScript : MonoBehaviour
     private GameObject InstantiatedPS;
 
     Renderer renderer;
+    public AudioClip clip;
 
     // Start is called before the first frame update
     void Start()
@@ -72,6 +73,10 @@ public class TaskOneScript : MonoBehaviour
         //confetti!
         InstantiatedPS = Instantiate(ps, new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity);
         InstantiatedPS.transform.Rotate(new Vector3(270, 0, 0));
+
+        //cha-ching
+        AudioSource.PlayClipAtPoint(clip, transform.position);
+
         Destroy(gameObject);
     }
 }
