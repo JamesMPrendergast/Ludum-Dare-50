@@ -29,6 +29,7 @@ public class TaskOneScript : MonoBehaviour
 
     Renderer renderer;
     public AudioClip clip;
+    public List<AudioClip> issueClips = new List<AudioClip>();
 
     // Start is called before the first frame update
     void Start()
@@ -75,7 +76,7 @@ public class TaskOneScript : MonoBehaviour
         InstantiatedPS.transform.Rotate(new Vector3(270, 0, 0));
 
         //cha-ching
-        AudioSource.PlayClipAtPoint(clip, transform.position);
+        AudioSource.PlayClipAtPoint(clip, transform.position, .25f);
 
         Destroy(gameObject);
     }
