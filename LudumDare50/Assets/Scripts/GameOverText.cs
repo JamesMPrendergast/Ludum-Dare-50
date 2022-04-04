@@ -18,7 +18,7 @@ public class GameOverText : MonoBehaviour
         minutes = PlayerPrefs.GetInt("minutes", 0);
         seconds = PlayerPrefs.GetInt("seconds", 0);
 
-        gameObject.GetComponent<Text>().text = minutes + ":" + seconds;
+        gameObject.GetComponent<Text>().text = minutes + ":" + properFormatSeconds(seconds);
 
         highscoreMinutes = PlayerPrefs.GetInt("highscoreMinutes", 0);
         highscoreSeconds = PlayerPrefs.GetInt("highscoreSeconds", 0);
@@ -34,7 +34,7 @@ public class GameOverText : MonoBehaviour
             PlayerPrefs.SetInt("highscoreSeconds", seconds);
         }
         else {
-            highscoreText.text = "Highscore: " + highscoreMinutes + ":" + highscoreSeconds;
+            highscoreText.text = "Highscore: " + highscoreMinutes + ":" + properFormatSeconds(highscoreSeconds);
             PlayerPrefs.SetInt("highscoreMinutes", highscoreMinutes);
             PlayerPrefs.SetInt("highscoreSeconds", highscoreSeconds);
         }
@@ -42,6 +42,8 @@ public class GameOverText : MonoBehaviour
 
     string properFormatSeconds(int numberSec)
     {
-
+        int numDigits = numberSec.ToString().Length;
+        if (numDigits <= 1) { return "0" + numberSec; }
+        else { return "" + numberSec; }
     }
 }
