@@ -50,10 +50,10 @@ public class TaskManager : MonoBehaviour
         {
             //tasks spawn faster over time
             timer = 0;
-            t1mintime *= .95f;
-            t1maxtime *= .95f;
-            t2mintime *= .95f;
-            t2maxtime *= .95f;
+            t1mintime *= .9375f;
+            t1maxtime *= .9375f;
+            t2mintime *= .9375f;
+            t2maxtime *= .9375f;
         }
     }
 }

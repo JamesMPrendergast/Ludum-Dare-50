@@ -42,8 +42,7 @@ public class GameOverText : MonoBehaviour
 
     string properFormatSeconds(int numberSec)
     {
-        int numDigits = numberSec.ToString().Length;
-        if (numDigits <= 1) { return "0" + numberSec; }
+        if (numberSec < 10) { return "0" + numberSec; }
         else { return "" + numberSec; }
     }
 }
