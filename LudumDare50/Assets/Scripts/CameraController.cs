@@ -32,6 +32,8 @@ public class CameraController : MonoBehaviour
 
     void Start()
     {
+        sensitivity = PlayerPrefs.GetFloat("Sensitivity", 35);
+
         current = this;
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
@@ -102,15 +104,15 @@ public class CameraController : MonoBehaviour
     void CameraControls()
     {
         //player & camera rotates with clamp
-        transform.Rotate(Vector3.up * mouseMovement.x);
-        xRotation -= mouseMovement.y;
+        transform.Rotate(Vector3.up * mouseMovement.x * Time.deltaTime);
+        xRotation -= mouseMovement.y * Time.deltaTime;
         xRotation = Mathf.Clamp(xRotation, -90f, 90f);
         camera.transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
     }
 
     public void OnMouseMove(InputValue input)
     {
-        mouseMovement = input.Get<Vector2>();
+        mouseMovement = input.Get<Vector2>() * sensitivity;
     }
 
     public void OnInteractPressed()

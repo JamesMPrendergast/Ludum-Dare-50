@@ -315,7 +315,7 @@ MonoBehaviour:
   camera: {fileID: 4291011569535169077}
   indicator: {fileID: 0}
   radial: {fileID: 0}
-  sensitivity: 25
+  sensitivity: 15
   lookRange: 6.25
   FOVTransitionTime: 0
   interactPressed: 0
