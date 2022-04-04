@@ -263,14 +263,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cc: {fileID: 0}
   groundCheck: {fileID: 6514688899618494911}
-  speed: 5
+  baseSpeed: 5
   groundDistance: 0.25
   gravity: -9.81
   groundMask:
     serializedVersion: 2
     m_Bits: 128
-  isGrounded: 0
-  velocity: {x: 0, y: 0, z: 0}
+  totalBoost: 0
 --- !u!114 &5547239927877174718
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -314,4 +313,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   camera: {fileID: 4291011569535169077}
-  sensitivity: 45
+  indicator: {fileID: 0}
+  radial: {fileID: 0}
+  sensitivity: 30
+  lookRange: 6.25
+  FOVTransitionTime: 0
+  interactPressed: 0
+  taskBeingSolved: {fileID: 0}
