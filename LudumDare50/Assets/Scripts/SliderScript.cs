@@ -13,9 +13,9 @@ public class SliderScript : MonoBehaviour
     private void Start()
     {
         slider = GetComponent<Slider>();
-        slider.value = PlayerPrefs.GetFloat("Sensitivity", 35);
+        slider.value = PlayerPrefs.GetFloat("Sensitivity", 20);
         if (SceneManager.GetActiveScene() == SceneManager.GetSceneByName("Start")) {
-            slider.value = 35;
+            slider.value = 20;
         }
     }
 
